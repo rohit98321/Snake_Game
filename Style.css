@@ -1,0 +1,85 @@
+*{
+
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+
+}
+
+
+:root{
+    --bg-primary-color:#211d1d;
+    --text-primary-color:#f0f0f0;
+}
+
+html,body{
+
+width: 100%;
+height: 100%;
+background-color: var(--bg-primary-color);
+color: var(--text-primary-color);
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+#main,section{
+
+width: 100%;
+height: 100%;
+padding: 30px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 20px;
+}
+
+section .infos{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+  
+}
+
+
+
+section .board{
+    width: 90%;
+    height: 90%;
+    padding: 2px;
+    display: grid;
+    border: 1px solid white;
+    grid-template-columns: repeat(auto-fill,minmax(30px ,1fr)) ;
+    grid-template-rows: repeat(auto-fill,minmax(30px,1fr)) ;
+}
+
+@media(max-width: 500px){
+    .board{
+       background-color: black;
+    }
+
+    .infos{
+        font-size: 8px;
+        
+    }
+}
+.board .block{
+    width: 30px;
+    height: 30px;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #595757;
+   border: .5px solid rgb(52, 118, 55);
+}
+
+
+.fill{
+    background-color: #f0f0f0;
+}
+
+.food{
+    background-color: red;
+}
+
