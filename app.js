@@ -3,11 +3,17 @@ const board = document.querySelector(".board");
 const blockHeight = 30;
 const blockWidth = 30;
 
+let score=0;
+let highScore=document.querySelector("#highscore").innerHTML=localStorage.getItem("highscore") || 0;
+
+
 //clientWidth --> find any object width
 
 const cols = Math.floor(board.clientWidth / blockWidth);
 const rows = Math.floor(board.clientHeight / blockHeight);
 console.log(cols, rows);
+
+
 
 
 
@@ -72,6 +78,9 @@ intervalStop=setInterval(() => {
   else if(direction === "up"){
     head={x:snake[0].x-1,y:snake[0].y}
   }else{
+    if({x:snake[0].x === rows-1}){
+      head={x:0,y:snake[0].y}
+    }
     head={x:snake[0].x+1,y:snake[0].y}
   }
 
@@ -84,7 +93,14 @@ intervalStop=setInterval(() => {
       y:Math.floor(Math.random()*cols)
     }
     blocks[`${food.x}-${food.y}`].classList.add("food");
+    score++;
     snake.unshift(head);
+    document.querySelector("#score").innerHTML=score;
+    if(score>highScore){
+      highScore=score;
+      localStorage.setItem("highscore",highScore);
+    }
+
   }
 
   if(head.x<0 || head.x >=rows || head.y<0 || head.y>=cols){
@@ -106,7 +122,7 @@ intervalStop=setInterval(() => {
 
 render()
 
-}, 500);
+}, 200);
 
 
 addEventListener("keydown",(event)=>{
@@ -115,4 +131,17 @@ addEventListener("keydown",(event)=>{
   else if(event.key === "ArrowLeft") direction="left"
   else if(event.key === "ArrowRight") direction="right"
 })
+
+document.querySelector(".up").addEventListener("click",()=>{
+  direction="up"
+})
+document.querySelector(".down").addEventListener("click",()=>{
+  direction="down"
+})  
+document.querySelector(".left").addEventListener("click",()=>{
+  direction="left"
+})  
+document.querySelector(".right").addEventListener("click",()=>{
+  direction="right"
+})  
 
