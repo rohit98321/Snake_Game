@@ -53,16 +53,7 @@ section .board{
     grid-template-rows: repeat(auto-fill,minmax(30px,1fr)) ;
 }
 
-@media(max-width: 500px){
-    .board{
-       background-color: black;
-    }
 
-    .infos{
-        font-size: 8px;
-        
-    }
-}
 .board .block{
     width: 30px;
     height: 30px;
@@ -84,20 +75,49 @@ section .board{
 }
 
 
-button{
-    width: 150px;
-    height: 150px;
+.buttons{
+    width: 200px;
+    height: 200px;
+    border: 1px solid black;
+    display: none;
 }
 
-.button{
+button{
+    width: 60px;
+    height: 60px;
+}
+
+
+
+.x{
+    width: 100%;
+    display: flex;
+    justify-content: space-between
+}
+.y-up{
+    width: 100%;
+    border: 1px solid black;
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
-    
 }
 
-.y{
+.y-down{
+    width: 100%;
+    border: 1px solid black;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+}
+
+@media(max-width: 500px){
+    .board{
+       background-color: black;
+    }
+
+    .infos{
+        font-size: 8px;
+        
+    }
+    .buttons{
+        display: block;
+    }
 }
