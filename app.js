@@ -22,7 +22,7 @@ console.log(cols, rows);
 //   board.innerHTML = blocks;
 // }
 
-
+let level="hard";
 let food={
   x:Math.floor(Math.random()*rows),
   y:Math.floor(Math.random()*cols)
@@ -103,10 +103,25 @@ intervalStop=setInterval(() => {
 
   }
 
-  if(head.x<0 || head.x >=rows || head.y<0 || head.y>=cols){
-    clearInterval(intervalStop);
-    alert("Game Over");
-    return;
+  if(level==="hard"){
+    if( head.x<0 || head.x >=rows || head.y<0 || head.y>=cols){
+      clearInterval(intervalStop);
+      alert("Game Over");
+      return;
+    }
+  }
+  else if(level === "easy"){
+    if(head.x==0){
+      head.x=rows-1;
+    }else if(head.x ===rows-1){
+      head.x=0;
+    }else if(head.y==0){
+      head.y=cols-1;
+    }
+    else if(head.y==cols-1){
+      head.y=0;
+    }
+    
   }
 
 

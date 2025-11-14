@@ -120,4 +120,21 @@ button{
     .buttons{
         display: block;
     }
+
+    .board .block{
+        width: 10px;
+        height: 10px;
+        font-size: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #595757;
+       border: .5px solid rgb(52, 118, 55);
+    }
+}
+
+.level select{
+    width: 100px;
+    height: 50px;
+    padding: 10px;
 }
