@@ -137,7 +137,7 @@ intervalStop=setInterval(() => {
 
 render()
 
-}, 200);
+}, 400);
 
 
 addEventListener("keydown",(event)=>{
